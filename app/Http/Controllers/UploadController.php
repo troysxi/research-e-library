@@ -3,7 +3,7 @@
 namespace App\Http\Controllers;
 
 use Illuminate\Http\Request;
-use App\File;
+use App\File as ResearchDocs;
 use App\Http\Requests;
 use App\Http\Controllers\Controller;
 use DB;
@@ -27,8 +27,12 @@ class UploadController extends Controller
      */
      public function search(Request $request)
      {
-       $files=$request->files;
-       $req=File::latest('created_at')->where('name','like','%' .$files. '%')->orWhere('id','like','%'.$files. '%')->get();
+       $q = $request->get('q');
+       $req = ResearchDocs::latest('created_at')
+       ->where('name','like','%' .$q. '%')
+       ->orWhere('id','like','%' .$q. '%')
+       ->get();
+
        return view('upload.index',['files' => $req]);
      }
 

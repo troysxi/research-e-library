@@ -3,24 +3,22 @@
 namespace App\Http\Controllers;
 
 use Illuminate\Http\Request;
-use App\File;
-use App\Record;
+
 use App\Http\Requests;
 use App\Http\Controllers\Controller;
+use App\File;
 
-class FileController extends Controller
+class HomeController extends Controller
 {
     /**
      * Display a listing of the resource.
      *
      * @return \Illuminate\Http\Response
      */
-    public function index($id)
+    public function index()
     {
-      $record = Record::find($id);
-
-      return view('upload.upload', compact('record'));
-        //return $request->all();
+      $files = File::all();
+      return view('upload.index',['files'=> $files]);
     }
 
     /**
@@ -39,27 +37,9 @@ class FileController extends Controller
      * @param  \Illuminate\Http\Request  $request
      * @return \Illuminate\Http\Response
      */
-    public function store($id, Request $request)
+    public function store(Request $request)
     {
-        $record = Record::find($id);
-
-        if($request->hasFile('file')) {
-
-          $filename = $request->file->getClientOriginalName();
-          $filesize = $request->file->getClientSize();
-
-          $request->file->move('public/upload',$filename);
-
-          $record->file()->create([
-            'name' => $filename,
-            'size' => $filesize
-          ]);
-
-          $files = File::all();
-          return redirect()->route('home');
-      }
-
-      return redirect()->back()->with('error', 'invalid file');
+        //
     }
 
     /**

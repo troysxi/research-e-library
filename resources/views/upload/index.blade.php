@@ -1,7 +1,6 @@
 @extends('master')
 
 @section('content')
-<body>
 
   <div class="panel-body">
     <div class="form-group text-center">
@@ -10,11 +9,16 @@
       </a>
 
       <br><br>
-      <form action='{{url('file/search')}}' method="post">
-        <input class="form-control" type ="text" name="files" placeholder="Search Title ...."></input><br>
-        <input type ="hidden" name="_token" value="{{ csrf_token() }}"></input>
-      </form>
+      <div class="row">
+        <div class="col-md-12">
+          {!! Form::open(['url' => 'file/search', 'method' => 'get']) !!}
+            <input class="form-control" type ="text" name="q" placeholder="Search Title ...."></input><br>
+          {!! Form::close() !!}
+        </div>
+      </div>
     </div>
+    @if(request()->has('q'))
+
     <div class="table-responsive">
 
       <table class="table table-hover table-bordered table-condensed text-center">
@@ -52,6 +56,6 @@
       </table>
 
     </div>
+    @endif
   </div>
-</body>
 @endsection

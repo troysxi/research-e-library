@@ -14,9 +14,15 @@ class CreateFilesTable extends Migration
     {
         Schema::create('files', function (Blueprint $table) {
             $table->increments('id');
-            $table->string('name');
-            $table->string('size');
+            $table->integer('record_id', false, true)->nullable();
+            $table->string('name')->nullable();
+            $table->string('size')->nullable();
             $table->timestamps();
+
+            $table->foreign('record_id')
+            ->references('id')
+            ->on('records')
+            ->onDelete('cascade');
         });
     }
 

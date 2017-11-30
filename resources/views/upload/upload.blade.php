@@ -16,14 +16,13 @@
   <div class="container">
 
     <div class="row">
-
       <div id="login">
           <span class="fa fa-upload"></span>
           <div class="text-center">
     				<h1><strong>Upload Softcopy</strong></h1>
     			</div>
 
-      <form name="form-login" action="{{ route('upload.file')}}" method="post" class="form-horizontal" enctype="multipart/form-data">
+      <form name="form-login" action="{{ route('upload.file', $record->id)}}" method="post" class="form-horizontal" enctype="multipart/form-data">
         {{ csrf_field() }}
 
 

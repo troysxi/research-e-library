@@ -39,7 +39,7 @@
                       <b>Admin</b>
                   </a>
                   <div class="dropdown-menu dropdown-menu-right" aria-labelledby="navbarDropdownPortfolio">
-                    <a class="dropdown-item" href="{{URL::asset('/')}}">Log out</a>
+                    <a class="dropdown-item" href="{{ route('logout') }}">Log out</a>
                     <a class="dropdown-item" href="{{route('logins.index')}}">Accounts</a>
                   </div>
                 </li>

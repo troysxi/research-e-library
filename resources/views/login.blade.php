@@ -16,8 +16,8 @@
       <div class="text-center">
 				<h1><strong>Admin</strong></h1>
 			</div>
-
-      <form name='form-login'>
+      <form name='form-login' action="{{ route('postLogin') }}" method="post">
+        {!! csrf_field() !!}
         <span class="fa fa-user"></span>
           <input type="text" name="username" placeholder="Username">
 

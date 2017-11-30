@@ -41,15 +41,17 @@
 
         <div class="panel-body">
           <div class="form-group text-center">
-            <form action='{{url('search')}}' method="post">
-              <input class="form-control" type ="text" name="records" placeholder="Search Titles ...."></input><br>
-              <input type ="hidden" name="_token" value="{{ csrf_token() }}"></input>
-            </form>
+            {!! Form::open(['url' => 'search', 'method' => 'get'])!!}
+              <input class="form-control" type ="text" name="q" placeholder="Search Titles ...."></input><br>
+            {!! Form::close() !!}
           </div>
 
           @if (Session::has('flash_message'))
           <div class="alert alert-success">{{Session::get('flash_message')}}</div>
           @endif
+
+          @if(request()->has('q'))
+
           <div class="table-responsive">
             <table class="table table-hover table-bordered table-condensed text-center">
               <thead>
@@ -115,6 +117,7 @@
             </div>
 
           </div>
+          @endif
         </div>
 
       </div>

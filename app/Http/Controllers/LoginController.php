@@ -7,6 +7,9 @@ use DB;
 use App\Http\Requests;
 use App\Http\Controllers\Controller;
 use App\File;
+use Auth;
+use App\User;
+
 class LoginController extends Controller
 {
     /**
@@ -16,20 +19,31 @@ class LoginController extends Controller
      */
     public function index(Request $request)
     {
-        $username = $request->input('username');
-        $password = $request->input('password');
+        return view("login");
+    }
 
-        $check = DB::table('logins')->where(['username'=>$username,'password'=>$password])->get();
+    public function login(Request $request) {
+      $username = $request->input('username');
+      $password = $request->input('password');
 
-        if(count($check)>0)
-        {
-          $files = File::all();
-          return view('upload.index',['files'=> $files]);
-        }
+      $authenticated = Auth::attempt([
+        'username' => $username,
+        'password' => $password
+      ]);
 
-        else {
-          return view("login");
-        }
+
+      if($authenticated)
+      {
+        return redirect()->route('home');
+      }
+
+      return redirect()->back();
+    }
+
+    public function logout() {
+      Auth::logout();
+
+      return redirect()->route('landing_page');
     }
 
     /**

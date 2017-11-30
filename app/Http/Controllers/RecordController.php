@@ -6,6 +6,7 @@ use Illuminate\Http\Request;
 use App\Record;
 use App\Http\Requests;
 use App\Http\Controllers\Controller;
+use App\User;
 
 class RecordController extends Controller
 {
@@ -31,7 +32,7 @@ class RecordController extends Controller
     public function search(Request $request)
     {
                   \Session::flash('flash_message','To download present your id to the research office');
-      $records = $request-> records;
+      $records = $request->get('q');
       $req = Record::latest('created_at')->where('Title','like','%' .$records. '%')
                                          ->orWhere('Faculty','like','%'.$records. '%')
                                          ->orWhere('id','like','%'.$records.'%')
@@ -64,20 +65,19 @@ class RecordController extends Controller
               'Title'=>'required|max:255',
               'Faculty'=>'required|max:255',
               'Researcher'=>'required|max:500',
-              'Abstract'=>'required|max:10000']);
+              'Abstract'=>'required|max:10000'
+            ]);
 
 
-            $records = new Record();
+            $record = Record::create([
+              'Title'=> $request->Title,
+              'Faculty' => $request->Faculty,
+              'Researcher'=> $request->Researcher,
+              'Abstract'=> $request->Abstract,
+              'created_at'=> $request->created_at
+            ]);
 
-            $records->Title= $request->Title;
-            $records->Faculty = $request->Faculty;
-            $records->Researcher= $request->Researcher;
-            $records->Abstract= $request->Abstract;
-            $records->created_at= $request->created_at;
-            $records->save();
-
-
-            return view('upload.upload');
+            return redirect()->route('upload.file', $record);
 }
     /**
      * Display the specified resource.

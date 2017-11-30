@@ -13,34 +13,42 @@
 
 Route::get('/', function () {
     return view('index');
-});
-Route::resource('items', 'ItemController');
-Route::post('items', 'ItemController@search');
-
-Route::resource('bsit','BsitController');
-
-Route::resource('record','RecordController');
-Route::get('list_record','RecordController@index')->name('list.record');
-Route::get('list_record/show','RecordController@show');
-Route::post('search','RecordController@search');
-
-Route::get('template','TemplateController@index')->name('template.index');
-Route::get('template/mla','TemplateController@mla')->name('template.mla');
-Route::get('template/paperpiletool','TemplateController@tool1')->name('template.tool1');
-
-
-Route::get('file','FileController@index')->name('upload.file');
-Route::post('file','FileController@store');
-
-Route::get('admin','UploadController@index');
-Route::post('file/search','UploadController@search');
+})->name('landing_page');
 
 Route::get('login','LoginController@index');
+Route::get('logout','LoginController@logout')->name('logout');
+Route::post('login','LoginController@login')->name('postLogin');
 
-Route::get('loading','LoadingController@index');
-Route::get('show','LoadingController@show');
+  Route::get('list_record','RecordController@index')->name('list.record');
+  Route::get('list_record/show','RecordController@show');
+  Route::get('search','RecordController@search');
+  Route::resource('record','RecordController');
 
-Route::resource('logins','AccountController');
+    Route::get('template','TemplateController@index')->name('template.index');
+    Route::get('template/mla','TemplateController@mla')->name('template.mla');
+    Route::get('template/paperpiletool','TemplateController@tool1')->name('template.tool1');
+Route::group(['middleware' => ['auth']], function() {
+  Route::resource('items', 'ItemController');
+  Route::post('items', 'ItemController@search');
+
+  Route::resource('bsit','BsitController');
+
+  Route::get('record/{id}/file','FileController@index')->name('upload.file');
+  Route::post('record/{id}/file','FileController@store')->name('upload.file');
+
+
+
+  Route::post('file','FileController@store');
+
+  Route::get('admin','UploadController@index');
+  Route::get('file/search','UploadController@search');
+
+
+  Route::get('loading','LoadingController@index');
+  Route::get('show','LoadingController@show');
+  Route::get('home','HomeCOntroller@index')->name('home');
+  Route::resource('logins','AccountController');
+});
 
 //Route::get('frontend.home', 'FrontendController_Home@index')
 

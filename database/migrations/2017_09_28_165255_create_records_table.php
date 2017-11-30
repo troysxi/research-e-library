@@ -14,11 +14,11 @@ class CreateRecordsTable extends Migration
     {
         Schema::create('records', function (Blueprint $table) {
             $table->increments('id');
-            $table->string('Title');
-            $table->string('Abstract');
-            $table->string('Faculty');
-            $table->string('Researcher');
-            $table->timestamps('');
+            $table->string('Title')->nullable();
+            $table->string('Abstract')->nullable();
+            $table->string('Faculty')->nullable();;
+            $table->string('Researcher')->nullable();;
+            $table->timestamps();
         });
     }
 

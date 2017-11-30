@@ -6,6 +6,14 @@ use Illuminate\Database\Eloquent\Model;
 
 class Record extends Model
 {
-    protected $fillable = ['Title','Abstract','Faculty','Researcher','file'];
+    protected $fillable = [
+      'Title',
+      'Abstract',
+      'Faculty',
+      'Researcher',
+      'file'];
 
+   public function file(){
+     return $this->hasOne(File::class);
+   }
 }

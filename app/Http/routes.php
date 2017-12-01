@@ -46,7 +46,7 @@ Route::group(['middleware' => ['auth']], function() {
 
   Route::get('loading','LoadingController@index');
   Route::get('show','LoadingController@show');
-  Route::get('home','HomeCOntroller@index')->name('home');
+  Route::get('home','HomeController@index')->name('home');
   Route::resource('logins','AccountController');
 });
 

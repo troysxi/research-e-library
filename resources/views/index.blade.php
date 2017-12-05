@@ -98,7 +98,7 @@
           <div class="col-md-2">
             <ul class="list-inline social-buttons">
               <li class="list-inline-item">
-                <a href="https://facebook.com/bulsu_research_office">
+                <a href="https://web.facebook.com/Bulsu-SC-Research-E-Library-131406404210138/?modal=admin_todo_tour">
                   <i class="fa fa-facebook"></i>
                 </a>
               </li>

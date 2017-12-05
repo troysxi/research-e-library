@@ -32,6 +32,7 @@ class RecordController extends Controller
     public function search(Request $request)
     {
                   \Session::flash('flash_message','To download present your id to the research office');
+                  
       $records = $request->get('q');
       $req = Record::latest('created_at')->where('Title','like','%' .$records. '%')
                                          ->orWhere('Faculty','like','%'.$records. '%')

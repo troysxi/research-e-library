@@ -123,10 +123,13 @@
                 <li class="list-inline-item">
                     <span class="copyright">Copyright &copy; BulSU-SC E-Library 2017</span>
                     <br>
-                  <a data-toggle="modal" href="#portfolioModal1">Privacy Policy</a>
+                  <a href="{{route('privacypolicy')}}">Privacy Policy</a>
                 </li>
                 <li class="list-inline-item">
-                  <a data-toggle="modal" href="#portfolioModal2">Terms of Use</a>
+                   <a href="{{route('termsofuse')}}">Terms of Use</a>
+                </li>
+                 <li class="list-inline-item">
+                   <a href="{{route('termsofuse')}}">Developer</a>
                 </li>
               </ul>
             </div>

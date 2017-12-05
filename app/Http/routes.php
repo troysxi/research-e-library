@@ -21,6 +21,10 @@ Route::get('features','navigationController@features')->name('features');
 Route::get('about','navigationController@about')->name('about');
 /*end navigation */
 
+Route::get('privacypolicy','footerController@privacypolicy')->name('privacypolicy');
+Route::get('termsofuse','footerController@termsofuse')->name('termsofuse');
+
+
 Route::get('login','LoginController@index');
 Route::get('logout','LoginController@logout')->name('logout');
 Route::post('login','LoginController@login')->name('postLogin');

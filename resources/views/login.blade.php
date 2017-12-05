@@ -16,7 +16,7 @@
         <link rel="stylesheet" href="{{URL::asset('css3/style.css')}}">
 
       <!-- Bootstrap core CSS -->
-      <link href="{{URL::asset('vendor/bootstrap/css/bootstrap.min.css')}}" rel="stylesheet">
+      <link href="{{URL::asset('vendor/bootstrap/css/login.min.css')}}" rel="stylesheet">
 
       <!-- Custom fonts for this template -->
       <link href="{{URL::asset('vendor/font-awesome/css/font-awesome.min.css')}}" rel="stylesheet" type="text/css">
@@ -34,21 +34,23 @@
       @endif
 
       <div class="text-center">
-				<h1>Admin</h1>
+        <br>
+				<h1>Admin Login</h1>
 			</div>
       <form name='form-login' action="{{ route('postLogin') }}" method="post">
         {!! csrf_field() !!}
         <br>
         <span class="fa fa-user"></span>
-          <input type="text" name="username" placeholder="Username" >
+          <input type="text" name="username" placeholder="Username" ><br>
           <br>
         <span class="fa fa-lock"></span>
-          <input type="password" name="password" placeholder="Password">
+          <input type="password" name="password" placeholder="Password"><br>
+          <br>
 
-        <input type="submit" value="Login">
+        <input class="btn btn-success" type="submit" value="Login">
         <br>
         <br>
-      <a href="/"><button class="fa fa-close" type="button" name="button">Cancel</button></a>
+      <a href="/"><button class=" btn btn-danger fa fa-close" type="button" name="button">Cancel</button></a>
         </form>
 
 </body>

@@ -68,7 +68,7 @@
                 <tr>
                   <th class="text-center">   ID         </th>
                   <th class="text-center">   Title      </th>
-                  <th class="text-center">   Faculty    </th>
+                  <th class="text-center">   Course    </th>
                   <th class="text-center">   Researcher </th>
                   <th class="text-center">   Year       </th>
                   <th class="text-center">   Action     </th>

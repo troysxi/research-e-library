@@ -9,17 +9,17 @@
 
 
       <link rel="stylesheet" href="https://fonts.googleapis.com/css?family=Open+Sans:400,700">
-        <link href="{{URL::asset('vendor/font-awesome/css/font-awesome.min.css')}}" rel="stylesheet" type="text/css">
-        <link rel="stylesheet" href="{{URL::asset('css3/style.css')}}">
+      <link href="{{URL::asset('vendor/font-awesome/css/font-awesome.min.css')}}" rel="stylesheet" type="text/css">
+      <link rel="stylesheet" href="{{URL::asset('css3/style.css')}}">
 
       <!-- Bootstrap core CSS -->
-      <link href="{{URL::asset('vendor/bootstrap/css/bootstrap.min.css')}}" rel="stylesheet">
+      <link href="{{URL::asset('vendor/bootstrap/css/footer.min.css')}}" rel="stylesheet">
 
       <!-- Custom fonts for this template -->
       <link href="{{URL::asset('vendor/font-awesome/css/font-awesome.min.css')}}" rel="stylesheet" type="text/css">
 
       <!-- Custom styles for this template -->
-      <link href="{{URL::asset('css/agency.min.css')}}" rel="stylesheet">
+      <link href="{{URL::asset('css/footer.min.css')}}" rel="stylesheet">
 
 </head>
 
@@ -30,14 +30,23 @@
               <div class="container">
                 <div class="row">
                   <div class="col-lg-8 mx-auto">
-                      <h2>Privacy Policy</h2>
-                      <p class="item-intro text-muted">Main gate of Sarmiento Campus.</p>
-                      <p>asldhalshdlakshdlkasd!</p>
-                      <ul class="list-inline">
-                        <li>Date: January 2017</li>
-                        <li>Client: Main Entrance</li>
-                        <li>Category: Illustration</li>
-                      </ul>
+                    <br>
+                    <br>
+                    <br>
+                    <br>
+                    <br>
+                      <h2>Terms Of Use</h2>
+                      <p class="item-intro text-muted">These Term of Use are Effective on December 8,2017.</p>
+                      <p>
+ By Accessing or Using the Research E-Library,
+  the services and all data,design,text,images,
+  graphics, including all arrangements thereof,
+   contained therein are propriety,confidential,
+    and are licensed to you under this Agreement,
+    not to sold you. By accesing or otherwise using any
+     portion of the Services, you agree to be bound by the
+      terms of this Agreement</p>
+                     
                       <a class="btn btn-info fa fa-times" href="{{route('landing_page')}}">Close</a>
                     
                     </div>

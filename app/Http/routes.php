@@ -15,6 +15,12 @@ Route::get('/', function () {
     return view('index');
 })->name('landing_page');
 
+
+/*navigation*/
+Route::get('features','navigationController@features')->name('features');
+Route::get('about','navigationController@about')->name('about');
+/*end navigation */
+
 Route::get('login','LoginController@index');
 Route::get('logout','LoginController@logout')->name('logout');
 Route::post('login','LoginController@login')->name('postLogin');
@@ -27,6 +33,8 @@ Route::post('login','LoginController@login')->name('postLogin');
     Route::get('template','TemplateController@index')->name('template.index');
     Route::get('template/mla','TemplateController@mla')->name('template.mla');
     Route::get('template/paperpiletool','TemplateController@tool1')->name('template.tool1');
+
+/*admin Panel*/
 Route::group(['middleware' => ['auth']], function() {
   Route::resource('items', 'ItemController');
   Route::post('items', 'ItemController@search');

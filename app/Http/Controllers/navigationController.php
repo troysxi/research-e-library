@@ -3,48 +3,20 @@
 namespace App\Http\Controllers;
 
 use Illuminate\Http\Request;
-use DB;
+
 use App\Http\Requests;
 use App\Http\Controllers\Controller;
-use App\File;
-use Auth;
-use App\User;
 
-class LoginController extends Controller
+class navigationController extends Controller
 {
     /**
      * Display a listing of the resource.
      *
      * @return \Illuminate\Http\Response
      */
-    public function index(Request $request)
+    public function features()
     {
-        return view("login");
-    }
-
-    public function login(Request $request) {
-      $username = $request->input('username');
-      $password = $request->input('password');
-
-      $authenticated = Auth::attempt([
-        'username' => $username,
-        'password' => $password
-      ]);
-
-
-      if($authenticated)
-      {
-        return redirect()->route('home');
-      }
-
-        \Session::flash('flash_message','Invalid username or password');
-      return redirect()->back();
-    }
-
-    public function logout() {
-      Auth::logout();
-
-      return redirect()->route('landing_page');
+         return view('nav.features');
     }
 
     /**
@@ -52,9 +24,9 @@ class LoginController extends Controller
      *
      * @return \Illuminate\Http\Response
      */
-    public function create()
+    public function about()
     {
-        //
+        return view('nav.about');
     }
 
     /**

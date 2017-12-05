@@ -17,7 +17,7 @@
 		<div class="pull-right">
 			<a class="btn btn-success" href="{{ route('items.create') }}">Add New Research Title</a>
 		</div>
-
+             
 	</div>
 
 

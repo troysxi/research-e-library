@@ -43,12 +43,6 @@
                     <a class="dropdown-item" href="{{route('logins.index')}}">Accounts</a>
                   </div>
                 </li>
-
-                <li class="nav-item">
-                  <a class= "nav-link" href="#">
-                      <b>Messages</b>
-                  </a>
-                </li>
               </ul>
             </div>
           </div>

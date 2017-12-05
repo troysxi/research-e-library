@@ -10,7 +10,7 @@
 </div>
 
 <div class="form-group" >
-  {!! Form::label('Faculty', 'Faculty Involved') !!}
+  {!! Form::label('Faculty', 'Course') !!}
   {!! Form::text ('Faculty',null,['class' => 'form-control text-center','placeholder'=>'Enter Faculty Involved..','required']) !!}
 </div>
 

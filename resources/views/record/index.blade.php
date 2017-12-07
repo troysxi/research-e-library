@@ -1,6 +1,16 @@
 <!DOCTYPE html>
-<html>
+<html lang="en">
 <head>
+
+  <!-- Latest compiled and minified CSS -->
+<link rel="stylesheet" href="https://maxcdn.bootstrapcdn.com/bootstrap/3.3.4/css/bootstrap.min.css">
+
+<!-- Optional theme -->
+<link rel="stylesheet" href="https://maxcdn.bootstrapcdn.com/bootstrap/3.3.4/css/bootstrap-theme.min.css">
+
+<!-- Latest compiled and minified JavaScript -->
+<script src="https://maxcdn.bootstrapcdn.com/bootstrap/3.3.4/js/bootstrap.min.js"></script> 
+
   <title>BulSu-SC Research Library</title>
 
   <link href="{{URL::asset('css3/bootstrap.min.css')}}" rel="stylesheet">
@@ -58,7 +68,7 @@
                 <tr>
                   <th class="text-center">   ID         </th>
                   <th class="text-center">   Title      </th>
-                  <th class="text-center">   Faculty    </th>
+                  <th class="text-center">   Course    </th>
                   <th class="text-center">   Researcher </th>
                   <th class="text-center">   Year       </th>
                   <th class="text-center">   Action     </th>
@@ -77,13 +87,7 @@
                   <td>
                     <a class="btn btn-info" href="{{route('record.show',$records->id)}}">Read More</a><br><br>
 
-                    <a data-toggle="modal" href="#portfolioModal1">
-                      <button type="button" class="btn btn-primary">
-                        <i class="glyphicon glyphicon-download">
-                          Download
-                        </i>
-                      </button>
-                    </a>
+                   
 
                   </tr>
                 </tbody>

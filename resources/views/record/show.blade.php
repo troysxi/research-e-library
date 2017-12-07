@@ -9,7 +9,7 @@
   </div><br>
 
   <div class="form-group">
-    <strong>Faculty Involved:</strong>          {{$records->Faculty}}
+    <strong>Course:</strong>          {{$records->Faculty}}
   </div><br>
 
   <div class="form-group">

@@ -17,9 +17,9 @@ class FileController extends Controller
      */
     public function index($id)
     {
-      $record = Record::find($id);
+        $record = Record::find($id);
 
-      return view('upload.upload', compact('record'));
+        return view('upload.upload', compact('record'));
         //return $request->all();
     }
 
@@ -36,36 +36,37 @@ class FileController extends Controller
     /**
      * Store a newly created resource in storage.
      *
-     * @param  \Illuminate\Http\Request  $request
+     * @param  \Illuminate\Http\Request $request
      * @return \Illuminate\Http\Response
      */
     public function store($id, Request $request)
     {
         $record = Record::find($id);
 
-        if($request->hasFile('file')) {
+        if ($request->hasFile('file')) {
 
-          $filename = $request->file->getClientOriginalName();
-          $filesize = $request->file->getClientSize();
+            $filename = $request->file->getClientOriginalName();
+            $filesize = $request->file->getClientSize();
 
-          $request->file->move('public/upload',$filename);
+            $request->file->move(public_path('upload'), $filename);
 
-          $record->file()->create([
-            'name' => $filename,
-            'size' => $filesize
-          ]);
+            $record->file()->create([
+                'name' => $filename,
+                'size' => $filesize,
+            ]);
 
-          $files = File::all();
-          return redirect()->route('home');
-      }
+            $files = File::all();
 
-      return redirect()->back()->with('error', 'invalid file');
+            return redirect()->route('home');
+        }
+
+        return redirect()->back()->with('error', 'invalid file');
     }
 
     /**
      * Display the specified resource.
      *
-     * @param  int  $id
+     * @param  int $id
      * @return \Illuminate\Http\Response
      */
     public function show($id)
@@ -76,7 +77,7 @@ class FileController extends Controller
     /**
      * Show the form for editing the specified resource.
      *
-     * @param  int  $id
+     * @param  int $id
      * @return \Illuminate\Http\Response
      */
     public function edit($id)
@@ -87,8 +88,8 @@ class FileController extends Controller
     /**
      * Update the specified resource in storage.
      *
-     * @param  \Illuminate\Http\Request  $request
-     * @param  int  $id
+     * @param  \Illuminate\Http\Request $request
+     * @param  int $id
      * @return \Illuminate\Http\Response
      */
     public function update(Request $request, $id)
@@ -99,7 +100,7 @@ class FileController extends Controller
     /**
      * Remove the specified resource from storage.
      *
-     * @param  int  $id
+     * @param  int $id
      * @return \Illuminate\Http\Response
      */
     public function destroy($id)

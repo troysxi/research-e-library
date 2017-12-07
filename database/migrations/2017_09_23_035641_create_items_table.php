@@ -14,11 +14,11 @@ class CreateItemsTable extends Migration
     {
         Schema::create('items', function (Blueprint $table) {
             $table->increments('id');
-            $table->string('Title');
-            $table->string('Faculty_Involved');
-            $table->string('Researchers');
-            $table->string('Abstract');
-            $table->timestamps('Date_Sub');
+            $table->string('Title')->nullable();
+            $table->string('Faculty_Involved')->nullable();
+            $table->string('Researchers')->nullable();
+            $table->string('Abstract')->nullable();
+            $table->timestamps('Date_Sub')->nullable();
 
         });
     }
